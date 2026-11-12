@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the below like from <project>content</project> is schema like rules or structure for the pom file it tells what re the tags allowed inside this file and -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion> <!-- This is model version of  POM -->
+
+    <groupId>org.example</groupId> <!-- group id should written in reverse like first extension and then domain name and it should be unique-->
+    <artifactId>MavenDemo</artifactId>
+    <version>1.0-SNAPSHOT</version> <!-- snapshot means the project is under working so if any one sees any project jar file with snapshot that means the project is under working-->
+    <!-- The above groupid,artifatctid, version, are the related to our crrent project jar file-->
+
+    <!-- Here im downloading the sql connector with the help of online maven repo -->
+    <!-- maven also automatically download the transitive depdency files also -->
+    <dependencies>
+        <!-- Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.7.0</version>
+            <scope>compile</scope> <!-- it tells maven where does this depdency should be used and by default its compile -->
+        </dependency>
+    </dependencies>
+
+    <!-- we can also overide the repoistry so that maven will all the depdency from our own private repo instead of fetching from the central repo and syntax is : -->
+    <!-- we need to override the repo tag of the parent pom.xml-->
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>com.colruyt</id>-->
+<!--            <url>colruytgroup.com</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+    <!-- so that is how we can override but make sure the repo is availabe remotly then it will work if not maven will throw and error-->
+
+    <properties> <!-- These are properties field which stored as key-value pain-->
+        <java>23</java>  <!-- i ca also create my own property and it can be reused -->
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <!-- plugin helps maven to build the project where depdency helps to download external library that is req for our application-->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <artifactId>fd</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+</project>
